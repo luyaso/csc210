@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Lucy's Webpage</title>
+	<meta charset="utf-8">
+	<meta name="description" content="Users search table">
+	<link rel="stylesheet" type= "text/css" href= "{{ url_for('static', filename='css/styles.css')}}">
+</head>
+<body>
+	<div class="navbar-fixed">
+		<nav>
+			<ul>
+				<li><a href="{{url_for('main.addpost')}}">Add a Post</a></li>
+				<li><a href="{{url_for('main.index')}}">Back to Main Page</a></li>
+			</ul>
+		</nav>
+	</div>
+	<h1><br></h1>
+	
+	{% if search %}
+		<h1>User "{{fname}}": </h1>
+	
+		<p>{{ users }}</p>
+		<p>user id = {{users.id}}, first name = {{users.firstname}}</p>
+		
+		<h1><br><br><br><br><br></h1>
+		<form action="{{url_for('main.usersearch')}}" method="POST">
+			{{form.hidden_tag()}}
+			{{form.fname.label}} {{form.fname()}}
+			{{form.submit()}}
+		</form>
+		<h1><br></h1>
+	{% else %}
+		<h1>Users in the table:</h1>
+		{% for myuser in users %}
+			<div class="menu">
+				<ul>
+					<p>{{ myuser }}</p>
+					<p>user id = {{myuser.id}}, first name = {{myuser.firstname}}</p>
+					<!-- <p>hashed password = {{myuser.password_hash}}</p> -->
+				</ul>
+			</div>
+		{% endfor %}
+		
+		<h1><br><br><br><br><br><br><br><br></h1>
+		<form action="{{url_for('main.usersearch')}}" method="POST">
+			{{form.hidden_tag()}}
+			{{form.fname.label}} {{form.fname()}}
+			{{form.submit()}}
+		</form>
+		<h1><br></h1>
+	{% endif %}
+	
+	
+	
+	<div class="container">
+		<ul>
+			<li><a href="{{url_for('main.tacpage')}}">terms & conditions</a></li>
+			<li><a href="{{url_for('main.delete')}}">Remove a user</a></li>
+		</ul>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Lucy's Webpage</title>
+	<meta charset="utf-8">
+	<meta name="description" content="mainpage">
+	<link rel="stylesheet" type= "text/css" href= "{{ url_for('static', filename='css/styles.css')}}">
+</head>
+<body>
+	<div class="navbar-fixed">
+		<nav>
+			<ul>
+				<li><a href="{{url_for('main.index')}}">Back to Main Page</a></li>
+				<li><a href="{{url_for('main.logout')}}">Logout</a></li>
+			</ul>
+		</nav>
+	</div>
+	
+	<h1><br><br>Penny for your thoughts?</h1>
+	<h1><br><br></h1>
+	<form action="{{url_for('main.addpost')}}" method = "POST">
+		{{ form.hidden_tag() }}
+		{{ form.post.label }} {{ form.post() }}
+		{{ form.submit() }}
+	</form>
+	<h1><br><br><br></h1>
+	
+	<div class="container">
+		<ul>
+			<li><a href="{{url_for('main.tacpage')}}">terms & conditions</a></li>
+		</ul>
+	</div>
+</body>
+</html>

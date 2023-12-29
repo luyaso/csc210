@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Lucy's Webpage</title>
+	<meta charset="utf-8">
+	<meta name="description" content="mainpage">
+	<link rel="stylesheet" type= "text/css" href= "{{ url_for('static', filename='css/styles.css')}}">
+</head>
+<body>
+	<div class="navbar-fixed">
+		<nav>
+			<ul>
+				<li><a href="{{url_for('main.usersearch')}}">Look up a user!</a></li>
+				
+				{% if loggedin %}
+					<li><a href="{{url_for('main.addpost')}}">Add a new post</a></li>
+					<li><a href="{{url_for('main.myacc')}}">My Account</a></li>
+					<li><a href="{{url_for('main.logout')}}">Logout</a></li>
+				{% else %}
+					<li><a href="{{url_for('main.login')}}">Login</a></li>
+					<li><a href="{{url_for('main.add')}}">Create a new account</a></li>
+				{% endif %}
+				
+			</ul>
+		</nav>
+	</div>
+	
+	<h1><br><br>Welcome! Whats up?</h1>
+	{% for post in posts %}
+		<div>
+			<ul>
+				<p>{{ post.username }}</p>
+				<p>>>> {{ post.summary }}</p>
+			</ul>
+		</div>
+	{% endfor %}
+	
+	<h1><br><br><br><br><br></h1>
+	
+	<div class="container">
+		<ul>
+			<li><a href="{{url_for('main.tacpage')}}">terms & conditions</a></li>
+		</ul>
+	</div>
+	
+</body>
+</html>

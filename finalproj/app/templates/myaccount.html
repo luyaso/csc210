@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Lucy's Webpage</title>
+	<meta charset="utf-8">
+	<meta name="description" content="User account">
+	<link rel="stylesheet" type= "text/css" href= "{{ url_for('static', filename='css/styles.css')}}">
+</head>
+<body>
+	<div class="navbar-fixed">
+		<nav>
+			<ul>
+				<li><a href="{{url_for('main.index')}}">Back to Main Page</a></li>
+				<li><a href="{{url_for('main.addpost')}}">Add a Post</a></li>
+				<li><a href="{{url_for('main.logout')}}">Logout</a></li>
+			</ul>
+		</nav>
+	</div>
+	
+	
+	<h1><br><br>My Account</h1>
+	
+	<h2>{{ user.name }}</h2>
+	<h3>Hello, {{ user.username }}!</h3>
+	<br>
+	<p>My UID: {{ user.id }}</p>
+	<br><br>
+	
+	<div class="container">
+		<ul>
+			<li><a href="{{url_for('main.tacpage')}}">terms & conditions</a></li>
+		</ul>
+	</div>
+	
+</body>
+</html>

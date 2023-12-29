@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Log In</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type= "text/css" href= "{{ url_for('static', filename='css/styles.css')}}">
+</head>
+<body>
+	<h1>:)</h1>
+	<h2>You're already logged in!</h2>
+	
+	<nav class="container">
+		<ul>
+			<li><a href="{{url_for('main.myacc')}}">My Account</a></li>
+			<li><a href="{{url_for('main.index')}}">Back to Main Page</a></li>
+			<li><a href="{{url_for('main.logout')}}">Log out?</a></li>
+		</ul>
+	</nav>
+	
+</body>
+</html>

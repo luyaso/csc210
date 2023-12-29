@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Lucy's Webpage</title>
+	<meta charset="utf-8">
+	<meta name="description" content="terms and conditions">
+	<link rel="stylesheet" type= "text/css" href= "{{ url_for('static', filename='css/styles.css')}}">
+</head>
+<body>
+	<div class="navbar-fixed">
+		<nav>
+			<ul>
+				<li><a href="{{url_for('main.index')}}">Back to Main Page</a></li>
+				<li><a href="{{url_for('main.usersearch')}}">Look up a user!</a></li>
+				
+			</ul>
+		</nav>
+	</div>
+	<h1><br></h1>
+	
+	<h1>Terms & Conditions<br></h1>
+	<p> Literally none. Use to your hearts content... but please keep your content friendly! </p>
+	<p> Copyright: Lucy Yang (I have no legal knowledge, you could probably sue me for my own site and win)</p>
+	
+	<h1><br><br><br><br><br><br></h1>
+	<div class="container">
+		<ul>
+			<li><a href="{{url_for('main.delete')}}">Remove a user</a></li>
+		</ul>
+	</div>
+	
+</body>
+</html>
